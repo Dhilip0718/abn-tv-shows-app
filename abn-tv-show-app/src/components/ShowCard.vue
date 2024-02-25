@@ -29,7 +29,7 @@ export default {
   /* Add general card styles */
   border: 1px solid #ddd;
   padding: 15px;
-  margin: 10px;
+  margin: 1rem;
   display: flex;
   flex-direction: column;
   /* Add styles for width, box-shadow, etc. */

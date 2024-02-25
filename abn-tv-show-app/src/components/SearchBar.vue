@@ -3,20 +3,22 @@
         <div class="input-wrapper">
             <input v-model="searchQuery" @keypress.enter="onSearch" placeholder="Search..." />
             <button @click="onSearch">
-                <!-- <IconSearch /> -->
+                <IconSearch />
             </button>
         </div>
-        <template v-for="tvShow in tvShows" :key="tvShow.show.id">
-            <ShowCard v-if="tvShow.show" :cardHeader="tvShow.show.name"
-                :imageUrl="tvShow.show.image?.original" :cardDescription="tvShow.show.summary"></ShowCard>
-        </template>
+        <div class="search-results">
+            <template v-for="tvShow in tvShows" :key="tvShow.show.id">
+                <ShowCard v-if="tvShow.show" :cardHeader="tvShow.show.name" :imageUrl="tvShow.show.image?.original"
+                    :cardDescription="tvShow.show.summary"></ShowCard>
+            </template>
+        </div>
 
     </div>
 </template>
   
 <script>
 
-// import IconSearch from './icons/IconSearch.vue'
+import IconSearch from './icons/IconSearch.vue'
 import ShowCard from './ShowCard.vue'
 import tvShowsService from '../services/tvShowsService'
 
@@ -30,7 +32,7 @@ export default {
     },
     components: {
         ShowCard,
-        // IconSearch
+        IconSearch
     },
     methods: {
         async onSearch() {
@@ -83,7 +85,11 @@ export default {
             position: relative;
         }
     }
-
+    .search-results {
+        display: flex;
+        overflow-x: auto;
+        
+    }
     h2 {
         padding-top: 2rem;
     }
