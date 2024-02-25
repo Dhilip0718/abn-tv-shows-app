@@ -4,6 +4,8 @@ const BASE_URL = 'https://api.tvmaze.com';
 
 
 export default {
+  tvShows:[],
+
   // Method to fetch data from the API
   async fetchAllTvShowsData() {
     const endpoint = `${BASE_URL}/shows`;
@@ -11,7 +13,9 @@ export default {
     try {
       const showsData = await axios.get(endpoint);
 
-      return showsData.data;
+      this.tvShows = showsData.data;
+
+      return this.tvShows;
     } catch (error) {
       console.error('Error fetching data:', error);
 
@@ -31,6 +35,13 @@ export default {
 
       throw error; // Example of throwing an error
     }
+  },
+
+  filterTvShowById(tvShowId) {
+    const filtered = this.tvShows.filter((show) => show.id == tvShowId);
+    console.log(filtered,'filtered')
+    return filtered;
   }
+
 
 };

@@ -1,14 +1,14 @@
 <script setup>
-// import { RouterLink, RouterView } from 'vue-router'
-import MovieList from './components/MovieList.vue';
-import SearchBar from './components/SearchBar.vue';
+import { RouterView } from 'vue-router'
 </script>
 <!-- To do configure the router and refactor this module -->
 <template>
-  <SearchBar></SearchBar>
-  <MovieList></MovieList>
+  <header>
+    <div class="wrapper">
+      <h1>TV SHOWS</h1>
+    </div>
+  </header>
+  <RouterView />
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

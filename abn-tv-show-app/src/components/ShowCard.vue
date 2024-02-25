@@ -4,6 +4,7 @@
       <h3>{{ cardHeader }}</h3>
     </header>
     <img :src="imageUrl" alt="" class="card-image">
+
     <p class="card-description" v-html="limitText(cardDescription)"></p>
   </div>
 </template>

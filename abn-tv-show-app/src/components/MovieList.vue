@@ -4,8 +4,10 @@
             <h2>{{ genere }}</h2>
             <div class="tv-shows">
                 <template v-for="tvShow in tvShows" :key="tvShow.id">
-                    <ShowCard v-if="isGenereMatching(tvShow.genres, genere)" :cardHeader="tvShow.name"
-                        :imageUrl="tvShow.image.medium" :cardDescription="tvShow.summary"></ShowCard>
+                    <router-link :to="'/show/'+tvShow.id">
+                        <ShowCard v-if="isGenereMatching(tvShow.genres, genere)" :cardHeader="tvShow.name"
+                            :imageUrl="tvShow.image.medium" :cardDescription="tvShow.summary" :id="tvShow.id"></ShowCard>
+                    </router-link>
                 </template>
             </div>
         </div>
@@ -43,7 +45,6 @@ export default {
         },
 
         isGenereMatching(tvShowGeneres, currentGenere) {
-            console.log('IsGenere Matching', tvShowGeneres, currentGenere, tvShowGeneres.includes(currentGenere))
             return tvShowGeneres.includes(currentGenere);
         }
     },
@@ -62,7 +63,7 @@ export default {
         height: 42vh;
         margin: 2rem;
 
-       
+
 
         .tv-shows {
             display: flex;
