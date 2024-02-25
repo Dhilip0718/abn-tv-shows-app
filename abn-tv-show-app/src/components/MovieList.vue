@@ -1,8 +1,13 @@
 <template v-if="tvShows">
-    <div v-for="genere in uniqueGeneres" :key="genere" class="container">
-        <div class="card-slot">
-            <ShowCard v-for="tvShow in tvShows" :key="tvShow.id" :cardHeader="tvShow.name" :imageUrl="tvShow.image.medium"
-                :cardDescription="tvShow.summary"></ShowCard>
+    <div class="container">
+        <div v-for="genere in uniqueGeneres" :key="genere" class="genre-container">
+            <h2>{{ genere }}</h2>
+            <div class="tv-shows">
+                <template v-for="tvShow in tvShows" :key="tvShow.id">
+                    <ShowCard v-if="isGenereMatching(tvShow.genres, genere)" :cardHeader="tvShow.name"
+                        :imageUrl="tvShow.image.medium" :cardDescription="tvShow.summary"></ShowCard>
+                </template>
+            </div>
         </div>
     </div>
 </template>
@@ -38,6 +43,11 @@ export default {
                 console.error('Error fetching data:', error);
             }
         },
+
+        isGenereMatching(tvShowGeneres, currentGenere) {
+            console.log('IsGenere Matching', tvShowGeneres, currentGenere, tvShowGeneres.includes(currentGenere))
+            return tvShowGeneres.includes(currentGenere);
+        }
     },
 };
 </script>
@@ -45,13 +55,23 @@ export default {
 <style>
 .container {
     display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
 
-    .card-slot {
-        display: flex;
+    .genre-container {
+        width: 100vw;
+        height: 400px;
         overflow-x: auto;
-        width: 100%;
-        justify-content: flex-start;
+        margin: 2rem;
+
+        .tv-shows {
+            display: flex;
+            width: 100%;
+            justify-content: flex-start;
+        }
     }
+
 }
 </style>
   

@@ -1,20 +1,20 @@
-<template class="container">
-    <div class="card-container">
-        <header class="card-header">
-        <h3>{{ cardHeader }}</h3>
+<template>
+  <div class="card-container">
+    <header class="card-header">
+      <h3>{{ cardHeader }}</h3>
     </header>
     <img :src="imageUrl" alt="" class="card-image">
     <p class="card-description">{{ cardDescription }}</p>
-    </div>
+  </div>
 </template>
 
 <script>
 export default {
-    props: {
-        cardHeader: String,
-        imageUrl: String,
-        cardDescription: String,
-    }
+  props: {
+    cardHeader: String,
+    imageUrl: String,
+    cardDescription: String,
+  }
 }
 </script>
 
@@ -33,14 +33,14 @@ export default {
 
 .card-header {
   /* Add styles for header */
-  
+
 }
 
 .card-image {
   /* Add styles for image */
   /* Example: width, height, object-fit, etc. */
-  width: 100%; 
-  height: 80%; 
+  width: 100%;
+  height: 80%;
   object-fit: cover;
 }
 
@@ -48,8 +48,9 @@ export default {
   /* Add styles for description */
   /* Example: font-size, line-height, etc. */
   font-size: 12px;
-  white-space: nowrap; /* Prevent line breaks */
+  white-space: nowrap;
+  /* Prevent line breaks */
   overflow: hidden;
-  
+
 }
 </style>
