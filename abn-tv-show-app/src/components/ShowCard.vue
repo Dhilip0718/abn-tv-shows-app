@@ -1,11 +1,10 @@
 <template>
-  <div class="card-container">
-    <header class="card-header">
-      <h3>{{ cardHeader }}</h3>
-    </header>
+  <div class="card">
     <img :src="imageUrl" alt="" class="card-image">
-
-    <p class="card-description" v-html="limitText(cardDescription)"></p>
+    <div class="card-body">
+      <h2 class="card-title">{{ cardHeader }}</h2>
+      <p class="card-description" v-html="limitText(cardDescription)"></p>
+    </div>
   </div>
 </template>
 
@@ -24,39 +23,40 @@ export default {
 }
 </script>
 
-<style>
-.card-container {
-  /* Add general card styles */
-  border: 1px solid #ddd;
-  padding: 15px;
-  margin: 1rem;
-  display: flex;
-  flex-direction: column;
-  /* Add styles for width, box-shadow, etc. */
-  height: 400px;
-  min-width: 300px;
-  align-items: flex-start;
-}
+<style lang="scss" scoped>
+@import '../assets/scss/global.scss';
 
-.card-header {
-  /* Add styles for header */
-
-}
-
-.card-image {
-  /* Add styles for image */
-  /* Example: width, height, object-fit, etc. */
-  width: 100%;
-  height: 70%;
-  object-fit: contain;
-}
-
-p {
-  margin-top: 1rem;
-  font-size: 12px;
-  /* Prevent line breaks */
+.card {
+  border-radius: 8px;
   overflow: hidden;
-  padding: 8px;
+  margin: 16px;
+  width: 300px;
+  box-shadow: 0 4px 8px $platinum;
+  background-color: $white;
+  transition: margin 500ms;
 
+  &:hover {
+    margin-top: -5px;
+    z-index: 99;
+  }
+
+  img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .card-body {
+    padding: 16px;
+  }
+
+  .card-title {
+    font-size: 1.5em;
+    margin-bottom: 8px;
+  }
+
+  .card-description {
+    color: $color-tertiary;
+  }
 }
 </style>

@@ -4,9 +4,9 @@
             <h2>{{ genere }}</h2>
             <div class="tv-shows">
                 <template v-for="tvShow in tvShows" :key="tvShow.id">
-                    <router-link v-if="isGenereMatching(tvShow.genres, genere)" :to="'/show/'+tvShow.id">
-                        <ShowCard :cardHeader="tvShow.name"
-                            :imageUrl="tvShow.image.medium" :cardDescription="tvShow.summary" :id="tvShow.id"></ShowCard>
+                    <router-link v-if="isGenereMatching(tvShow.genres, genere)" :to="'/show/' + tvShow.id">
+                        <ShowCard :cardHeader="tvShow.name" :imageUrl="tvShow.image.medium"
+                            :cardDescription="tvShow.summary" :id="tvShow.id"></ShowCard>
                     </router-link>
                 </template>
             </div>
@@ -51,7 +51,9 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+@import '../assets/scss/global.scss';
+
 .container {
     display: flex;
     width: 100%;
@@ -72,6 +74,10 @@ export default {
         }
     }
 
+}
+
+a {
+    text-decoration: none;
 }
 </style>
   

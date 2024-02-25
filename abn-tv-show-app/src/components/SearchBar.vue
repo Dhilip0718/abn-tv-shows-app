@@ -88,7 +88,8 @@ export default {
     .search-results {
         display: flex;
         overflow-x: auto;
-        
+        flex-wrap: wrap;
+
     }
     h2 {
         padding-top: 2rem;
