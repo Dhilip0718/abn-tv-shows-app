@@ -34,9 +34,7 @@ export default {
             try {
                 this.tvShows = await tvShowsService.fetchAllTvShowsData();
                 if (this.tvShows.length !== 0) {
-                    console.log(this.tvShows)
                     this.uniqueGeneres = [...new Set(this.tvShows.map(show => show.genres).flat())];
-                    console.log(this.uniqueGeneres, 'generesList')
                 }
             } catch (error) {
                 // Handle errors, e.g., display an error message to the user
@@ -60,15 +58,17 @@ export default {
     flex-direction: column;
 
     .genre-container {
-        width: 100vw;
-        height: 400px;
-        overflow-x: auto;
+        width: 100%;
+        height: 42vh;
         margin: 2rem;
+
+       
 
         .tv-shows {
             display: flex;
             width: 100%;
             justify-content: flex-start;
+            overflow-x: auto;
         }
     }
 
