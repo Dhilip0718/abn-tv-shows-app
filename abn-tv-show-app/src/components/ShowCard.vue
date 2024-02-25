@@ -18,7 +18,7 @@ export default {
   },
   methods: {
     limitText(summary) {
-      return summary.length > 200 ? summary.substr(0, 90) + ' ...' : summary;
+      return summary?.length > 100 ? summary.substr(0, 190) + ' ...' : summary;
     }
   }
 }

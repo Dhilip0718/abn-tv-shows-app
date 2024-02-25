@@ -7,8 +7,8 @@
             </button>
         </div>
         <template v-for="tvShow in tvShows" :key="tvShow.show.id">
-            <ShowCard :cardHeader="tvShow.show.name"
-                :imageUrl="tvShow.show.image.medium" :cardDescription="tvShow.show.summary"></ShowCard>
+            <ShowCard v-if="tvShow.show" :cardHeader="tvShow.show.name"
+                :imageUrl="tvShow.show.image?.original" :cardDescription="tvShow.show.summary"></ShowCard>
         </template>
 
     </div>
@@ -37,6 +37,7 @@ export default {
             const lowercaseQuery = this.searchQuery.toLowerCase()
             console.log('lowecaseQuery', lowercaseQuery)
             this.tvShows = await tvShowsService.getFilteredShows(lowercaseQuery)
+            console.log('TV Shows', this.tvShows)
         }
     },
     computed: {
