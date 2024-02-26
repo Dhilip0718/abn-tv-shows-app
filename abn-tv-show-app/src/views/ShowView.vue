@@ -36,16 +36,17 @@
 
 <script>
 import tvShowsService from '../services/tvShowsService'
+
 export default {
   computed: {
     showDetails() {
       const id = this.$route.params.id
-      console.log(id,'Route Param set', 'tvShows list-->',tvShowsService.tvShows)
+      console.log('id,', id)
       const details = tvShowsService.filterTvShowById(id)
-      console.log('details',details)
+      console.log('details', this.details)
       return details[0]
     }
-  }
+  },
 }
 </script>
 

@@ -8,8 +8,10 @@
         </div>
         <div class="search-results">
             <template v-for="tvShow in tvShows" :key="tvShow.show.id">
-                <ShowCard v-if="tvShow.show" :cardHeader="tvShow.show.name" :imageUrl="tvShow.show.image?.original"
-                    :cardDescription="tvShow.show.summary"></ShowCard>
+                <router-link :to="'/show/' + tvShow.show.id">
+                    <ShowCard v-if="tvShow.show" :cardHeader="tvShow.show.name" :imageUrl="tvShow.show.image?.original"
+                        :cardDescription="tvShow.show.summary"></ShowCard>
+                </router-link>
             </template>
         </div>
 
@@ -37,15 +39,7 @@ export default {
     methods: {
         async onSearch() {
             const lowercaseQuery = this.searchQuery.toLowerCase()
-            console.log('lowecaseQuery', lowercaseQuery)
             this.tvShows = await tvShowsService.getFilteredShows(lowercaseQuery)
-            console.log('TV Shows', this.tvShows)
-        }
-    },
-    computed: {
-        filteredShows() {
-            // Case-insensitive search based on the item name
-            return this.$store.getters.filteredShows?.slice(0, 5)
         }
     }
 }
@@ -85,12 +79,14 @@ export default {
             position: relative;
         }
     }
+
     .search-results {
         display: flex;
         overflow-x: auto;
         flex-wrap: wrap;
 
     }
+
     h2 {
         padding-top: 2rem;
     }

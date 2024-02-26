@@ -28,8 +28,9 @@ export default {
 
     try {
       const filteredShows = await axios.get(endpoint);
+      console.error('id data:', filteredShows.data);
 
-      return filteredShows.data;
+      return filteredShows.data.show;
     } catch (error) {
       console.error('Error fetching data:', error);
 
@@ -39,7 +40,6 @@ export default {
 
   filterTvShowById(tvShowId) {
     const filtered = this.tvShows.filter((show) => show.id == tvShowId);
-    console.log(filtered,'filtered')
     return filtered;
   }
 
