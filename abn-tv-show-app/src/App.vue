@@ -4,7 +4,7 @@ import { RouterView } from 'vue-router'
 <template>
   <header>
     <div class="wrapper">
-      <h1>TV SHOWS</h1>
+      <h1>TV SHOWS & Movies</h1>
     </div>
   </header>
   <RouterView />

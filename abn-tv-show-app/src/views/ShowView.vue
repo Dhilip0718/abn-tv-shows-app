@@ -1,31 +1,34 @@
 <template>
   <div class="details-container">
     <div class="details" v-if="showDetails"
-      v-bind:style="{ 'background-image': 'url(' + showDetails?.image?.original + ')' }">
+      v-bind:style="{ 'background-image': 'url(' + showDetails?.data.image?.original + ')' }">
       <div class="wrapper">
-        <h1><a :href="showDetails.officialSite">{{ showDetails.name }}</a></h1>
+        <router-link :to="'/'"><button type="button" class="btn btn-primary">
+            <i class="bi bi-arrow-left"></i>Back to overview</button>
+        </router-link>
+        <h1><a :href="showDetails.data.officialSite">{{ showDetails.data.name }}</a></h1>
         <div>
-          <h5>Language:</h5> {{ showDetails.language }}
+          <h5>Language:</h5> {{ showDetails?.data.language }}
         </div>
         <div>
-          <h5>Rating:</h5> {{ showDetails.rating?.average }}
+          <h5>Rating:</h5> {{ showDetails?.data.rating?.average }}
         </div>
         <div>
-          <h5>Channel:</h5> {{ showDetails.network?.name }}
+          <h5>Channel:</h5> {{ showDetails?.data.webChannel?.name }}
         </div>
         <div>
-          <h5>Country:</h5> {{ showDetails.network?.country?.name }}
+          <h5>Rating:</h5> {{ showDetails?.data.rating.average }}
         </div>
         <div>
-          <h5>Status:</h5> {{ showDetails.status }}
+          <h5>Status:</h5> {{ showDetails.data.status }}
         </div>
         <div>
           <h5>Genre:</h5>
           <ul>
-            <li v-for="genre in showDetails.genres" :key="genre">{{ genre }}</li>
+            <li v-for="genre in showDetails.data.genres" :key="genre">{{ genre }}</li>
           </ul>
         </div>
-        <div v-html="showDetails.summary"></div>
+        <div v-html="showDetails.data.summary"></div>
       </div>
     </div>
     <div v-else>
@@ -38,15 +41,19 @@
 import tvShowsService from '../services/tvShowsService'
 
 export default {
-  computed: {
-    showDetails() {
-      const id = this.$route.params.id
-      console.log('id,', id)
-      const details = tvShowsService.filterTvShowById(id)
-      console.log('details', this.details)
-      return details[0]
+  data() {
+    return {
+      showDetails: null,
     }
   },
+  created() {
+    this.getMovieDetail();
+  },
+  methods: {
+    async getMovieDetail() {
+      this.showDetails = await tvShowsService.fetchShowDetails(this.$route.params.id)
+    }
+  }
 }
 </script>
 
@@ -97,4 +104,5 @@ export default {
       }
     }
   }
-}</style>
+}
+</style>

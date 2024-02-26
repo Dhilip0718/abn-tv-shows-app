@@ -2,7 +2,7 @@
 
 import { describe, it, expect, vi } from 'vitest';
 import { mount } from '@vue/test-utils';
-import MovieList from '../MovieList.vue'; // Assuming your component's path
+import MovieList from '../MovieList.vue'; 
 
 
 
@@ -37,8 +37,7 @@ describe('TvShowsList.vue', () => {
   it('renders correctly on load', () => {
     expect(wrapper.exists()).toBe(true);
     expect(wrapper.find('.container')).toBeTruthy();
-    expect(wrapper.findAll('.genre-container')).toHaveLength(5); // No genres when data is empty
+    expect(wrapper.findAll('.genre-container')).toHaveLength(5); 
   });
 
-  // Add more test cases to cover different scenarios and edge cases
 });

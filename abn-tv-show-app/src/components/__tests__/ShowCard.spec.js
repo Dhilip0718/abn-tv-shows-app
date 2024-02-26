@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import ShowCard from '../ShowCard.vue'; // Assuming your component is named Card.vue
+import ShowCard from '../ShowCard.vue';
 import { expect, describe, it } from 'vitest';
 
 describe('Card.vue', () => {

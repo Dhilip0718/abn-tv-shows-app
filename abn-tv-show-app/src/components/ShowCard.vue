@@ -17,7 +17,7 @@ export default {
   },
   methods: {
     limitText(summary) {
-      return summary?.length > 100 ? summary.substr(0, 190) + ' ...' : summary;
+      return summary?.length > 100 ? summary.substr(0, 190) + ' ...' : summary
     }
   }
 }
@@ -43,7 +43,7 @@ export default {
   img {
     width: 100%;
     height: 200px;
-    object-fit: cover;
+    object-fit: fill;
   }
 
   .card-body {
