@@ -1,35 +1,53 @@
-# abn-tv-show-app
+# TV Shows Project
 
-This template should help get you started developing with Vue 3 in Vite.
+This project is a TV Shows application built with [Vue.js](https://vuejs.org/) (vue3 + Options API). It allows users to fetch and filter TV shows.
 
-## Recommended IDE Setup
+## Table of Contents
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+- [Architecture Decisions](#architecture-decisions)
+- [Prerequisites](#prerequisites)
+- [Getting Started](#getting-started)
 
-## Customize configuration
+## Architecture Decisions
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+This project was built using Vue.js due to their simplicity, reactivity system, and ease of integration. Vue.js provides a component-based architecture that makes it easy to manage the UI, and Vuex helps manage the state in a predictable way.
 
-## Project Setup
+## Prerequisites
 
-```sh
-npm install
-```
+Before you begin, ensure you have met the following requirements:
 
-### Compile and Hot-Reload for Development
+- Node.js installed - v21.6.2
+- NPM (Node Package Manager) installed - 10.2.4
 
-```sh
-npm run dev
-```
+## Getting Started
 
-### Compile and Minify for Production
+To run this project, follow these steps:
 
-```sh
-npm run build
-```
+1. Clone the repository:
 
-### Lint with [ESLint](https://eslint.org/)
+   ```bash
+   git clone https://github.com/Dhilip0718/abn-tv-shows-app.git
 
-```sh
-npm run lint
-```
+   ```
+
+2. Change into the project directory:
+
+   ```bash
+   cd abn-tv-show-app
+
+   ```
+
+3. Install dependencies:
+
+   ```bash
+   npm install
+
+   ```
+
+4. Run the development server:
+
+   ```bash
+   npm run serve
+   ```
+
+This will start the development server, and you can access the application at http://127.0.0.1:5173/ in your browser.
