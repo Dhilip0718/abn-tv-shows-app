@@ -30,7 +30,7 @@ export default {
       const filteredShows = await axios.get(endpoint);
       console.error('id data:', filteredShows.data);
 
-      return filteredShows.data.show;
+      return filteredShows.data;
     } catch (error) {
       console.error('Error fetching data:', error);
 
