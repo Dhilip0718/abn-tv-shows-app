@@ -39,7 +39,6 @@ export default {
                     this.uniqueGeneres = [...new Set(this.tvShows.map(show => show.genres).flat())];
                 }
             } catch (error) {
-                // Handle errors, e.g., display an error message to the user
                 console.error('Error fetching data:', error);
             }
         },

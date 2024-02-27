@@ -1,5 +1,3 @@
-// TvShowsList.spec.ts (or your desired filename)
-
 import { describe, it, expect, vi } from 'vitest';
 import { mount } from '@vue/test-utils';
 import MovieList from '../MovieList.vue'; 
@@ -29,12 +27,12 @@ vi.mock('../../services/tvShowsService', () => ({
 
 }));
 
-describe('TvShowsList.vue', () => {
+describe('MovieList', () => {
   let wrapper;
   wrapper = mount(MovieList);
 
 
-  it('renders correctly on load', () => {
+  it('should render correctly on load', () => {
     expect(wrapper.exists()).toBe(true);
     expect(wrapper.find('.container')).toBeTruthy();
     expect(wrapper.findAll('.genre-container')).toHaveLength(5); 

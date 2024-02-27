@@ -6,7 +6,6 @@ const BASE_URL = 'https://api.tvmaze.com';
 export default {
   tvShows: [],
 
-  // Method to fetch data from the API
   async fetchAllTvShowsData() {
     const endpoint = `${BASE_URL}/shows`;
 
@@ -19,7 +18,7 @@ export default {
     } catch (error) {
       console.error('Error fetching data:', error);
 
-      throw error; // Example of throwing an error
+      throw error;
     }
   },
 
@@ -53,9 +52,7 @@ export default {
     } catch (error) {
       console.error('Error fetching data:', error);
 
-      throw error; // Example of throwing an error
+      throw error;
     }
-  },
-
-
+  }
 };

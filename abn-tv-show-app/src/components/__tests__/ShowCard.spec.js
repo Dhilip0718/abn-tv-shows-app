@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils';
 import ShowCard from '../ShowCard.vue';
 import { expect, describe, it } from 'vitest';
 
-describe('Card.vue', () => {
+describe('ShowCard', () => {
   it('renders the card with provided props', () => {
     const wrapper = mount(ShowCard, {
       props: {
@@ -12,16 +12,9 @@ describe('Card.vue', () => {
       },
     });
 
-    // Assert that the card exists
     expect(wrapper.find('.card')).toBeTruthy();
-
-    // Assert the card header
     expect(wrapper.find('.card-title').text()).toBe('This is a card header');
-
-    // Assert the truncated card description
     expect(wrapper.find('.card-description').text()).toBe('This is a very long description that exceeds the character limit and should be truncated.This is a very long description that exceeds the character limit and should be truncated and which is ...');
-
-    // Assert the image source
     expect(wrapper.find('img').attributes('src')).toBe('https://example.com/image.jpg');
   });
 
